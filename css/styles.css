@@ -4,6 +4,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: currentColor;
 }
 ul,
 ol {
@@ -34,6 +35,9 @@ button {
   border: none;
   border-radius: 4px;
 }
+address {
+  font-style: normal;
+}
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -47,10 +51,14 @@ button {
   overflow: hidden;
 }
 .container {
-  width: 398px;
+  max-width: 428px;
   margin: 0 auto;
   padding: 0 15px;
 }
+.nav-big {
+  display: none;
+}
+
 :root {
   --iris: #4d5ae5;
   --ocean: #404bbf;
@@ -89,19 +97,59 @@ button {
 .logo-span {
   color: var(--iris);
 }
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  translate: -100% 0 0;
+  transition: var(--transition);
+  background-color: var(--white);
+}
+.mobile-menu.is-open {
+  translate: none;
+}
+.menu-button {
+  position: absolute;
+  inset: 1em 1em auto auto;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 80px;
+  margin-left: 40px;
+}
 .address {
-  margin-left: auto;
+  margin-left: 40px;
+  position: absolute;
+  bottom: 128px;
 }
-nav {
-  margin-left: 76px;
+.header-contact {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 40px;
 }
-
 .navigation a {
-  font-size: 16px;
+  font-size: 36px;
   color: var(--navyblue);
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.32px;
+  font-weight: 700;
+  line-height: 1.11;
+  letter-spacing: 0.72px;
+  text-transform: capitalize;
+}
+.mobile-icons-con {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+.hamburger {
+  stroke: var(--navyblue);
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.mobile-icons {
+  gap: 62px;
+  display: flex;
 }
 .navigation a:hover,
 .navigation a:focus {
@@ -110,16 +158,25 @@ nav {
 }
 .active {
   color: var(--ocean) !important;
-  text-decoration: underline var(--ocean) 3px;
-  text-underline-offset: 29px;
 }
-.header-contact a {
+.hed-tel {
+  color: var(--iris);
+
+  font-size: 36px;
+
+  font-weight: 700;
+  line-height: 1.11;
+  letter-spacing: 0.72px;
+  text-transform: capitalize;
+}
+.hed-mail {
   color: var(--slate);
 
-  font-size: 16px;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: 0.32px;
+  font-size: 20px;
+
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
 }
 .header-contact a:hover,
 .header-contact a:focus {
@@ -127,7 +184,8 @@ nav {
   transition: color var(--transition);
 }
 .slogan-background {
-  padding: 188px 0;
+  background-size: cover;
+  padding: 112px 0;
   background-color: var(--navyblue);
   display: flex;
   justify-content: center;
@@ -140,12 +198,30 @@ nav {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .slogan-background {
+    background-color: var(--navyblue);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/people-office2.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+}
 .slogan {
   color: var(--white);
   font-size: 36px;
   font-weight: 700;
   line-height: 1.11;
-  letter-spacing: 0, 72px;
+  letter-spacing: 0.72px;
   text-align: center;
 
   max-width: 320px;
@@ -609,4 +685,82 @@ nav {
 }
 .form-modal > form > button {
   min-width: 169px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+  .nav-button {
+    display: none;
+  }
+  .nav-big {
+    display: flex;
+  }
+  .hamburger {
+    display: none;
+  }
+  .navigation {
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: 0;
+  }
+  .navigation a {
+    font-size: 16px;
+
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.32px;
+  }
+  nav {
+    margin-left: 76px;
+  }
+  .active {
+    text-decoration: underline var(--ocean) 3px;
+    text-underline-offset: 29px;
+  }
+  .address {
+    margin-left: auto;
+    top: 16px;
+    right: 16px;
+  }
+  .header-contact {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hed-tel {
+    color: var(--slate);
+
+    font-size: 12px;
+
+    line-height: 1.16;
+    letter-spacing: 0.48px;
+  }
+  .hed-mail {
+    color: var(--slate);
+
+    font-size: 12px;
+
+    line-height: 1.16;
+    letter-spacing: 0.48px;
+  }
+  .slogan {
+    font-size: 56px;
+
+    font-weight: 700;
+    line-height: 1.07;
+    letter-spacing: 1.12px;
+    max-width: 496px;
+    margin-bottom: 36px;
+  }
+  .company-desc {
+    max-width: 356px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+@media screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+  }
 }
