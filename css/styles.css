@@ -148,8 +148,8 @@ address {
   right: 24px;
 }
 .mobile-icons {
-  gap: 62px;
   display: flex;
+  gap: 2em;
 }
 .navigation a:hover,
 .navigation a:focus {
@@ -278,7 +278,7 @@ address {
 .company-desc {
   display: flex;
   gap: 72px;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 .company-desc > li > div {
   display: flex;
@@ -422,23 +422,17 @@ address {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  row-gap: 72px;
+  column-gap: 16px;
 }
-.customers-list > li {
+.list {
   fill: var(--lightslate);
   border: 1px solid var(--lightslate);
   border-radius: 4px;
-  margin-bottom: 72px;
 }
 /* .customers-list > li > svg {
   width: 190px;
 } */
-
-.customers-list > li:nth-child(odd) {
-  margin-right: 16px;
-}
-.margin-bot {
-  margin-bottom: 0px !important;
-}
 .customers-list > li:hover,
 .customers-list > li:focus {
   border-color: var(--ocean);
@@ -576,8 +570,6 @@ address {
   background: var(--iris);
   margin: 0 auto;
 }
-.email {
-}
 .form {
   display: flex;
   flex-direction: column;
@@ -585,7 +577,6 @@ address {
   gap: 24px;
 }
 .sub-inp {
-  width: 264px;
   background-color: var(--navyblue);
   border-radius: 4px;
   border: 1px solid var(--white, #fff);
@@ -721,7 +712,7 @@ address {
   .address {
     margin-left: auto;
     top: 16px;
-    right: 16px;
+    right: 25px;
   }
   .header-contact {
     flex-direction: column;
@@ -753,14 +744,128 @@ address {
     margin-bottom: 36px;
   }
   .company-desc {
+    column-gap: 24px;
+    row-gap: 72px;
+  }
+  .company-desc li {
     max-width: 356px;
+  }
+  .company-desc > li > h3 {
+    text-align: start;
+  }
+  .team {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 24px;
+    row-gap: 64px;
+  }
+  .customers-list {
+    row-gap: 72px;
+    column-gap: 24px;
+  }
+  .footer-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 24px;
+  }
+  .container-footer {
+    margin: 0px;
+    margin-bottom: 48px;
+    margin-left: -55px;
+  }
+  .logo-footer {
+    justify-content: flex-start;
+  }
+  .social-container {
+    margin: 0;
+  }
+  .email {
+    margin-left: -100px;
+  }
+  .social-header {
+    text-align: start;
+  }
+  .subscribe {
+    text-align: start;
+  }
+  .form {
+    flex-direction: row;
+  }
+  .sub-inp {
+    width: 264px;
+  }
+  .sub-btn {
+    width: 165px;
   }
 }
 @media screen and (min-width: 1158px) {
   .container {
     max-width: 1158px;
+  }
+  .section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+  .address {
+    margin-top: 10px;
+  }
+  .header-contact {
+    flex-direction: row;
+    gap: 40px;
+  }
+  .hed-mail {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.32px;
+  }
+  .hed-tel {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.32px;
+  }
+  .slogan-background {
+    padding: 188px 0;
+  }
+  .company-desc > li {
+    max-width: 264px;
+  }
+  .company-desc > li > div {
+    display: flex;
+  }
+  .company-desc > li > h3 {
+    font-size: 20px;
+
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+  }
+  .desc {
+    font-weight: 400;
+  }
+  .work {
+    display: block;
+    padding-top: 0px;
+  }
+  .customers-list {
+    flex-wrap: nowrap;
+  }
+  .footer-container {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+  .container-footer {
+    margin: 0;
+    margin-right: 120px;
+  }
+  .social-container {
+    margin-right: 80px;
+  }
+  .email {
+    margin-left: 0;
   }
 }
